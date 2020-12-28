@@ -5,15 +5,8 @@ import { faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Link from 'next/link';
-import styled from 'styled-components';
 
-const HomeButton = styled.a`
-  width: 100% !important;
-
-  @media (max-width: 767px) {
-    margin-top: 1em;
-  }
-`;
+import styles from './Header.module.css';
 
 export default function Header(): ReactElement {
   return (
@@ -34,24 +27,30 @@ export default function Header(): ReactElement {
                 <Col sm="12">
                   <Row>
                     <Col sm="12" md="6">
-                      <Link href="https://www.linkedin.com/in/mike-christian-santos-curi-a9472418b/">
-                        <HomeButton
-                          className="btn btn-large btn-primary font-weight-500 mr-3"
+                      <Link
+                        href="https://www.linkedin.com/in/mike-christian-santos-curi-a9472418b/"
+                        as="https://www.linkedin.com/in/mike-christian-santos-curi-a9472418b/"
+                      >
+                        <a
+                          className={`btn btn-large btn-primary font-weight-500 mr-3 ${styles.homeLink}`}
                           target="_blank"
                         >
                           <FontAwesomeIcon icon={faLinkedin} /> &nbsp; Linkedin
-                        </HomeButton>
+                        </a>
                       </Link>
                     </Col>
                     <Col sm="12" md="6">
-                      <Link href="https://github.com/ChristianCuri-dev">
-                        <HomeButton
-                          className="btn btn-large btn-primary-soft text-primary font-weight-500"
+                      <Link
+                        href="https://github.com/ChristianCuri-dev"
+                        as="https://github.com/ChristianCuri-dev"
+                      >
+                        <a
+                          className={`btn btn-large btn-primary-soft text-primary font-weight-500 ${styles.homeLink}`}
                           target="_blank"
                         >
                           <FontAwesomeIcon icon={faGithubAlt} />
                           &nbsp; GitHub
-                        </HomeButton>
+                        </a>
                       </Link>
                     </Col>
                   </Row>

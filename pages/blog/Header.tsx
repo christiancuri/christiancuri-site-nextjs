@@ -13,9 +13,9 @@ export default function BlogHeader(): ReactElement {
         <div className="container text-center">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <h1 className="page-header-title mb-3">Publications</h1>
+              <h1 className="page-header-title mb-3">Blog</h1>
               <p className="page-header-text mb-0">
-                Browse articles, keep up to date, and learn more on our blog!
+                Welcome to my blog, here i share a little about my knowledgment
               </p>
             </div>
           </div>
