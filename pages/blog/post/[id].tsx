@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 
 import Layout from '@/components/Layout';
-import { IPost } from '@/interfaces';
-import { api } from '@/services';
+import { IPost, IPostPath } from '@/interfaces';
+import { api, HttpRequest } from '@/services';
 import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -50,7 +50,7 @@ export default function PostPage({ post, error }: Props): ReactElement {
                       </div>
                     </div>
                   </div>
-                  <div className="single-post-meta-links">
+                  {/* <div className="single-post-meta-links">
                     <a href="#!">
                       <FontAwesomeIcon icon={faTwitter} />
                     </a>
@@ -60,12 +60,12 @@ export default function PostPage({ post, error }: Props): ReactElement {
                     <a href="#!">
                       <FontAwesomeIcon icon={faBookmark} />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 <img className="img-fluid mb-2" src={post.picture} alt="" />
-                <div className="small text-gray-500 text-center">
+                {/* <div className="small text-gray-500 text-center">
                   Photo Credit: Unsplash
-                </div>
+                </div> */}
                 <PostContent post={post} />
               </div>
               <hr className="my-5" />
@@ -94,10 +94,10 @@ export default function PostPage({ post, error }: Props): ReactElement {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
-  const { data: posts }: { data: IPost[] } = await api.get('/posts');
+  const postsPaths = await HttpRequest.getPostsPaths<IPostPath[]>();
 
-  const paths = posts.map(post => ({
-    params: { id: post._id.toString() },
+  const paths = postsPaths.map(post => ({
+    params: { id: post.uri },
   }));
 
   // We'll pre-render only these paths at build time.
@@ -110,9 +110,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // direct database queries.
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const id = params?.id;
+    const id: string = params?.id as string;
 
-    const { data: post }: { data: IPost } = await api.get(`/posts/${id}`);
+    const post = await HttpRequest.getPost<IPost>(id);
 
     return { props: { post } };
   } catch (err) {

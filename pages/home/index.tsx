@@ -2,16 +2,16 @@ import React, { ReactElement } from 'react';
 
 import Layout from '@/components/Layout';
 
-import Demos from './Demos';
+// import Demos from './Demos';
 import Header from './Header';
-import Skills from './Skills';
+// import Skills from './Skills';
 
 const Home = (): ReactElement => {
   return (
     <Layout>
       <Header />
-      <Demos />
-      <Skills />
+      {/* <Demos />
+      <Skills /> */}
     </Layout>
   );
 };

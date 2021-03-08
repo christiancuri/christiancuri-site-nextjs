@@ -22707,3 +22707,34 @@ section {
   color: #a7aeb8;
   font-size: 0.8rem;
 }
+
+.btn:focus {
+  box-shadow: none !important;
+  box-shadow: none !important;;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;;
+}
+
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none !important;
+    box-shadow: none !important;;
+}
+
+*:focus:not(a){
+  outline: 2px solid #f90d0e !important;
+  box-shadow: none !important;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none !important;
+    box-shadow: none !important;;
+}

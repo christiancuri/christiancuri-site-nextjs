@@ -20,8 +20,9 @@ export default function Header(): ReactElement {
               </h1>
               <p className="page-header-text mb-5">
                 Hi, my name is Christian Curi, i&apos;m 22 years old and I love
-                programming. Today im a Software Engineer with +8 experience
-                years. Below you can know a little more about me and my skills
+                programming. Today i&apos;m a Software Engineer with +8
+                experience years. Below you can know a little more about me and
+                my skills
               </p>
               <Row>
                 <Col sm="12">
@@ -41,8 +42,8 @@ export default function Header(): ReactElement {
                     </Col>
                     <Col sm="12" md="6">
                       <Link
-                        href="https://github.com/ChristianCuri-dev"
-                        as="https://github.com/ChristianCuri-dev"
+                        href="https://github.com/christiancuri"
+                        as="https://github.com/christiancuri"
                       >
                         <a
                           className={`btn btn-large btn-primary-soft text-primary font-weight-500 ${styles.homeLink}`}

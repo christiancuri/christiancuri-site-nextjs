@@ -12,7 +12,7 @@ type Props = {
 
 export default function Post({ post }: Props): ReactElement {
   return (
-    <Link href={`/blog/post/${post._id}`} as={`/blog/post/${post._id}`}>
+    <Link href={`/blog/post/${post.uri}`} as={`/blog/post/${post.uri}`}>
       <div className="col-md-6 col-xl-4 mb-5">
         <a className="card post-preview lift h-100" href="#!">
           <img alt="" className="card-img-top" src={post.picture} />

@@ -11,3 +11,17 @@ export type IPost = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type IPostResponse = {
+  data: IPost[];
+  hasMore: boolean;
+  pagination: {
+    skip: number;
+    limit: number;
+  };
+  total: number;
+};
+
+export type IPostPath = {
+  uri: string;
+};

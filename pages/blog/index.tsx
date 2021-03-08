@@ -1,8 +1,10 @@
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 
 import Layout from '@/components/Layout';
-import { IPost } from '@/interfaces';
-import { api } from '@/services';
+import { IPost, IPostResponse } from '@/interfaces';
+import { HttpRequest } from '@/services';
+
+import { useRouter } from 'next/router';
 
 import BlogHeader from './Header';
 import LatestPost from './LatestPost';
@@ -10,21 +12,32 @@ import Pagination from './Pagination';
 import Posts from './Posts';
 
 export default function BlogHome(): ReactElement {
+  const router = useRouter();
+
   const [posts, setPosts] = useState<IPost[]>([]);
   const [page, setPage] = useState<number>(0);
+
   const [latestPost, setLatestPage] = useState<IPost>();
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   const fetchPosts = useCallback(async () => {
-    const { data } = await api.get(`/posts?_page=${page}`);
+    const postResponse = await HttpRequest.getPosts<IPostResponse>(page);
     if (page === 0) {
-      setLatestPage(data.shift());
+      setLatestPage(postResponse.data[0]);
     }
-    setPosts(data);
+    setPosts(postResponse.data);
+    setTotalPages(postResponse.total);
   }, [page]);
 
   useEffect(() => {
     fetchPosts();
   }, [page, fetchPosts]);
+
+  useEffect(() => {
+    if (router?.query?.page) {
+      setPage(parseInt(String(router.query.page)) - 1);
+    }
+  }, [router]);
 
   return (
     <Layout footerDark={true}>
@@ -35,7 +48,7 @@ export default function BlogHome(): ReactElement {
           <div className="row">
             <Posts posts={posts} />
           </div>
-          <Pagination />
+          <Pagination page={page} setPage={setPage} total={totalPages} />
         </div>
         <div className="svg-border-rounded text-dark">
           <svg

@@ -1,45 +1,44 @@
 import React, { ReactElement } from 'react';
+import ReactPaginate from 'react-paginate';
 
-export default function Pagination(): ReactElement {
+import { Config } from '@/config';
+
+type Props = {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  total: number;
+};
+
+export default function Pagination({
+  page,
+  setPage,
+  total,
+}: Props): ReactElement {
+  const onPageChange = ({ selected }: { selected: number }) => {
+    setPage(selected);
+  };
+
   return (
-    <nav aria-label="Page navigation example">
-      <ul className="pagination pagination-blog justify-content-center">
-        <li className="page-item disabled">
-          <a className="page-link" href="#!" aria-label="Previous">
-            <span aria-hidden="true">«</span>
-          </a>
-        </li>
-        <li className="page-item active">
-          <a className="page-link" href="#!">
-            1
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#!">
-            2
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#!">
-            3
-          </a>
-        </li>
-        <li className="page-item disabled">
-          <a className="page-link" href="#!">
-            ...
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#!">
-            12
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#!" aria-label="Next">
-            <span aria-hidden="true">»</span>
-          </a>
-        </li>
-      </ul>
+    <nav aria-label="Page navigation">
+      <ReactPaginate
+        previousLabel={'«'}
+        nextLabel={'»'}
+        breakLabel={'...'}
+        breakClassName={'break-me'}
+        pageCount={Math.ceil(total / Config.POSTS_LIMIT)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={onPageChange}
+        containerClassName={'pagination pagination-blog justify-content-center'}
+        activeClassName={'active'}
+        pageClassName={'page-item'}
+        pageLinkClassName={'page-link'}
+        previousClassName={'page-item'}
+        previousLinkClassName={'page-link'}
+        nextClassName={'page-item'}
+        nextLinkClassName={'page-link'}
+        forcePage={page}
+      />
     </nav>
   );
 }

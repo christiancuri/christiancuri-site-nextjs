@@ -12,7 +12,7 @@ type Props = {
 
 export default function LatestPost({ post }: Props): ReactElement {
   return (
-    <Link href={`/blog/post/${post._id}`} as={`/blog/post/${post._id}`}>
+    <Link href={`/blog/post/${post.uri}`} as={`/blog/post/${post.uri}`}>
       <a className="card post-preview post-preview-featured lift mb-5">
         <div className="row no-gutters">
           <div className="col-lg-5">
