@@ -62,7 +62,6 @@ export default function PostPage({ post, error }: Props): ReactElement {
                     </a>
                   </div> */}
                 </div>
-                <img className="img-fluid mb-2" src={post.picture} alt="" />
                 {/* <div className="small text-gray-500 text-center">
                   Photo Credit: Unsplash
                 </div> */}

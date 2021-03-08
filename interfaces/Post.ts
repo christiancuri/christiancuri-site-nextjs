@@ -4,6 +4,7 @@ export type IPost = {
   picture: string;
   title: string;
   description: string;
+  body: string;
   author?: {
     name?: string;
     picture?: string;
