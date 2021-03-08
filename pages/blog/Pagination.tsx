@@ -9,6 +9,10 @@ type Props = {
   total: number;
 };
 
+function insertParam(key: string, value: string): void {
+  window.history.replaceState(null, document.title, `?${key}=${value}`);
+}
+
 export default function Pagination({
   page,
   setPage,
@@ -16,6 +20,7 @@ export default function Pagination({
 }: Props): ReactElement {
   const onPageChange = ({ selected }: { selected: number }) => {
     setPage(selected);
+    insertParam('page', String(selected + 1));
   };
 
   return (
