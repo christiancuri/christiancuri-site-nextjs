@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-import Home from '@/pages/home';
+import Home from '@/components/Home';
 
 const IndexPage = (): JSX.Element => <Home />;
 
