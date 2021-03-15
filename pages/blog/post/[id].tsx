@@ -1,24 +1,23 @@
 import React, { ReactElement } from 'react';
 
+import PostContent from '@/components/Blog/Post/PostContent';
 import Layout from '@/components/Layout';
 import { IPost, IPostPath } from '@/interfaces';
-import { api, HttpRequest } from '@/services';
-import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faBookmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HttpRequest } from '@/services';
+// import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+// import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { formatDistanceToNow } from 'date-fns';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
-
-import PostContent from './PostContent';
 
 type Props = {
   post: IPost;
   error?: string;
 };
 
-export default function PostPage({ post, error }: Props): ReactElement {
+export default function PostPage({ post }: Props): ReactElement {
   const updated = post.createdAt !== post.updatedAt;
   const date = updated ? post.createdAt : post.updatedAt;
   return (

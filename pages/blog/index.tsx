@@ -1,15 +1,14 @@
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 
+import BlogHeader from '@/components/Blog/Header';
+import LatestPost from '@/components/Blog/LatestPost';
+import Pagination from '@/components/Blog/Pagination';
+import Posts from '@/components/Blog/Posts';
 import Layout from '@/components/Layout';
 import { IPost, IPostResponse } from '@/interfaces';
 import { HttpRequest } from '@/services';
 
 import { useRouter } from 'next/router';
-
-import BlogHeader from './Header';
-import LatestPost from './LatestPost';
-import Pagination from './Pagination';
-import Posts from './Posts';
 
 export default function BlogHome(): ReactElement {
   const router = useRouter();
