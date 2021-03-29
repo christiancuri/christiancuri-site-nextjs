@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: christiancuri-site-nextjs
+  name: christiancuri-site-nextjs
+  namespace: default
+spec:
+  minReadySeconds: 5
+  progressDeadlineSeconds: 30
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: christiancuri-site-nextjs
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: christiancuri-site-nextjs
+    spec:
+      containers:
+        - env:
+            - name: ENVIRONMENT
+              value: PRODUCTION
+          image: christiancury/christiancuri-site-nextjs:latest
+          name: christiancuri-site-nextjs
+          ports:
+            - containerPort: 8080
+              protocol: 'TCP'
+          resources:
+            limits:
+              cpu: '2'
+              memory: '2Gi'
+              ephemeral-storage: '5Gi'
+            requests:
+              cpu: '1'
+              memory: '500Mi'
+              ephemeral-storage: '1Gi'
+      terminationGracePeriodSeconds: 10
+      imagePullSecrets:
+        - name: dockerhub
