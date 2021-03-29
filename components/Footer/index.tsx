@@ -27,7 +27,7 @@ export default function FooterComponent({ dark }: Props): ReactElement {
             Copyright {new Date().getFullYear()} &copy; ChristianCuri.dev
           </div>
           <div className="col-md-6 text-md-right small">
-            <Link href="https://github.com/ChristianCuri-dev">
+            <Link href="https://github.com/christiancuri">
               <a target="_blank">
                 <FontAwesomeIcon icon={faGithub} size="2x" />
               </a>

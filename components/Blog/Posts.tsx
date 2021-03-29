@@ -11,9 +11,9 @@ type Props = {
 export default function Posts({ posts }: Props): ReactElement {
   return (
     <>
-      {posts &&
-        posts.length &&
-        posts.map((post, key) => <Post key={key} post={post} />)}
+      {posts && posts.length
+        ? posts.map((post, key) => <Post key={key} post={post} />)
+        : null}
     </>
   );
 }
