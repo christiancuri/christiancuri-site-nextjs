@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import PostContent from '@/components/Blog/Post/PostContent';
+import { Discussion } from '@/components/Discussion';
 import Layout from '@/components/Layout';
 import { IPost, IPostPath } from '@/interfaces';
 import { HttpRequest } from '@/services';
@@ -66,6 +67,8 @@ export default function PostPage({ post }: Props): ReactElement {
                 </div> */}
                 <PostContent post={post} />
               </div>
+              <hr className="my-5" />
+              <Discussion post={post} />
               <hr className="my-5" />
               <div className="text-center">
                 <Link href="/blog">
