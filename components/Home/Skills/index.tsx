@@ -202,7 +202,7 @@ const Skills = (): JSX.Element => {
           ))}
         </div>
       </div>
-      <div className="svg-border-rounded text-white">
+      <div className="svg-border-rounded text-dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 144.54 17.34"

@@ -7,7 +7,7 @@ import Skills from './Skills';
 
 const Home = (): ReactElement => {
   return (
-    <Layout>
+    <Layout footerDark={true}>
       <Header />
       <Skills />
     </Layout>
