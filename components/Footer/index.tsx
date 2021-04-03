@@ -29,7 +29,11 @@ export default function FooterComponent({ dark }: Props): ReactElement {
           <div className="col-md-6 text-md-right small">
             <Link href="https://github.com/christiancuri">
               <a target="_blank">
-                <FontAwesomeIcon icon={faGithub} size="2x" />
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  size="2x"
+                  style={{ width: '25px' }}
+                />
               </a>
             </Link>
           </div>

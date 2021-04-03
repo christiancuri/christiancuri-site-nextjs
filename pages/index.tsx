@@ -1,23 +1,19 @@
-// import Link from 'next/link';
-// import Layout from '@/components/Layout';
-
-// const IndexPage = () => (
-// <Layout title="Home | Next.js + TypeScript Example">
-//   <h1>Hello Next.js 👋</h1>
-//   <p>
-//     <Link href="/about">
-//       <a>About</a>
-//     </Link>
-//   </p>
-// </Layout>
-// );
-
-// export default IndexPage;
-
 import React from 'react';
 
 import Home from '@/components/Home';
 
-const IndexPage = (): JSX.Element => <Home />;
+import Head from 'next/head';
+
+const IndexPage = (): JSX.Element => (
+  <div>
+    <Head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css"
+      />
+    </Head>
+    <Home />
+  </div>
+);
 
 export default IndexPage;

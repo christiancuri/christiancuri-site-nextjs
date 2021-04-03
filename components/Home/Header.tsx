@@ -8,7 +8,14 @@ import Link from 'next/link';
 
 import styles from './Header.module.css';
 
+const yearsUntilToday = (date: Date): number =>
+  new Date().getFullYear() - new Date(date).getFullYear();
+
+const MY_BIRTHDAY = new Date('07/22/1999');
+
 export default function Header(): ReactElement {
+  const myAge = yearsUntilToday(MY_BIRTHDAY);
+
   return (
     <header className="page-header page-header-light bg-white">
       <div className="page-header-content pt-5">
@@ -19,10 +26,10 @@ export default function Header(): ReactElement {
                 Welcome to my personal website
               </h1>
               <p className="page-header-text mb-5">
-                Hi, my name is Christian Curi, i&apos;m 22 years old and I love
-                programming. Today i&apos;m a Software Engineer with +8
-                experience years. Below you can know a little more about me and
-                my skills
+                Hi, my name is Christian Curi, i&apos;m {myAge} years old and I
+                love programming. Today i&apos;m a Software Engineer with +8
+                work experience years. Below you can know a little more about me
+                and my skills
               </p>
               <Row>
                 <Col sm="12">
@@ -36,7 +43,11 @@ export default function Header(): ReactElement {
                           className={`btn btn-large btn-primary font-weight-500 mr-3 ${styles.homeLink}`}
                           target="_blank"
                         >
-                          <FontAwesomeIcon icon={faLinkedin} /> &nbsp; Linkedin
+                          <FontAwesomeIcon
+                            icon={faLinkedin}
+                            style={{ width: '20px' }}
+                          />{' '}
+                          &nbsp; Linkedin
                         </a>
                       </Link>
                     </Col>
@@ -49,7 +60,10 @@ export default function Header(): ReactElement {
                           className={`btn btn-large btn-primary-soft text-primary font-weight-500 ${styles.homeLink}`}
                           target="_blank"
                         >
-                          <FontAwesomeIcon icon={faGithubAlt} />
+                          <FontAwesomeIcon
+                            icon={faGithubAlt}
+                            style={{ width: '20px' }}
+                          />
                           &nbsp; GitHub
                         </a>
                       </Link>
