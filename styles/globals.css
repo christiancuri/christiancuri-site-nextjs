@@ -22726,7 +22726,7 @@ section {
 }
 
 *:focus:not(a){
-  outline: 2px solid #f90d0e !important;
+  outline: none !important;
   box-shadow: none !important;
 }
 

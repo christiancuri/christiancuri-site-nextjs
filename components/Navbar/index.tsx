@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Navbar as BsNavbar, Nav } from 'react-bootstrap';
 
 import Link from 'next/link';
 
 const Navbar: React.FC = () => {
+  const [openned, setOpenned] = useState<boolean>(false);
+
   return (
     <nav className="navbar navbar-marketing navbar-expand-lg bg-transparent navbar-light">
       <div className="container">
         <Link href="/">
           <a className="navbar-brand text-primary">CHRISTIANCURI.DEV</a>
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i data-feather="menu" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <BsNavbar.Toggle
+          aria-controls="navbar"
+          onClick={() => setOpenned(!openned)}
+        />
+        <BsNavbar.Collapse in={openned}>
+          <Nav className="navbar-nav ml-auto mr-lg-5">
+            <Nav.Item className="nav-item">
+              <Link href="/">
+                <a className="nav-link">Home</a>
+              </Link>
+            </Nav.Item>
+            <Nav.Item className="nav-item">
+              <Link href="/blog">
+                <a className="nav-link">Blog</a>
+              </Link>
+            </Nav.Item>
+          </Nav>
+        </BsNavbar.Collapse>
+        {/* <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto mr-lg-5">
             <li className="nav-item">
               <Link href="/">
@@ -32,15 +42,8 @@ const Navbar: React.FC = () => {
                 <a className="nav-link">Blog</a>
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link href="/apps">
-              <a className="nav-link">
-                Apps
-              </a>
-              </Link>
-            </li> */}
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
