@@ -1,7 +1,7 @@
-import { SkillIcon, SkillName } from './styles';
+import { SkillIcon, SkillName, SkillContainer } from './styles';
 
 type Skill = {
-  type: 'devicon' | 'other';
+  type: 'devicon';
   name: string;
   icon?: string;
 };
@@ -14,20 +14,21 @@ const MY_SKILLS: Skill[] = [
   {
     type: 'devicon',
     name: 'Nodejs',
-    icon: 'nodejs_small',
   },
   {
     type: 'devicon',
-    name: 'React',
+    name: 'TS',
+    icon: 'devicon-typescript-plain',
   },
   {
     type: 'devicon',
     name: 'GCP',
-    icon: 'google-cloud-platform',
+    icon: 'devicon-googlecloud-plain',
   },
   {
     type: 'devicon',
     name: 'Nginx',
+    icon: 'devicon-nginx-original',
   },
   {
     type: 'devicon',
@@ -36,6 +37,7 @@ const MY_SKILLS: Skill[] = [
   {
     type: 'devicon',
     name: 'AWS',
+    icon: 'devicon-amazonwebservices-original',
   },
   {
     type: 'devicon',
@@ -47,11 +49,37 @@ const MY_SKILLS: Skill[] = [
   },
   {
     type: 'devicon',
-    name: 'Bootstrap',
+    name: 'Kubernetes',
   },
   {
     type: 'devicon',
     name: 'Linux',
+  },
+  {
+    type: 'devicon',
+    name: 'Bash',
+  },
+  {
+    type: 'devicon',
+    name: 'React',
+    icon: 'devicon-react-original',
+  },
+  {
+    type: 'devicon',
+    name: 'Redux',
+  },
+  {
+    type: 'devicon',
+    name: 'Electron',
+    icon: 'devicon-electron-original',
+  },
+  {
+    type: 'devicon',
+    name: 'CouchDB',
+  },
+  {
+    type: 'devicon',
+    name: 'Bootstrap',
   },
   {
     type: 'devicon',
@@ -83,11 +111,6 @@ const MY_SKILLS: Skill[] = [
   },
   {
     type: 'devicon',
-    name: 'Angular',
-    icon: 'angular_simple',
-  },
-  {
-    type: 'devicon',
     name: 'jQuery',
   },
   {
@@ -100,7 +123,8 @@ const MY_SKILLS: Skill[] = [
   },
   {
     type: 'devicon',
-    name: 'DotNet',
+    name: '.NET',
+    icon: 'devicon-dot-net-plain',
   },
   {
     type: 'devicon',
@@ -110,7 +134,49 @@ const MY_SKILLS: Skill[] = [
     type: 'devicon',
     name: 'Firebase',
   },
+  {
+    type: 'devicon',
+    name: 'Angular',
+    icon: 'devicon-angularjs-plain',
+  },
+  {
+    type: 'devicon',
+    name: 'Elixir',
+  },
+  {
+    type: 'devicon',
+    name: 'Express',
+    icon: 'devicon-express-original',
+  },
+  {
+    type: 'devicon',
+    name: 'Gatsby',
+  },
+  {
+    type: 'devicon',
+    name: 'Kotlin',
+  },
+  {
+    type: 'devicon',
+    name: 'NestJS',
+  },
+  {
+    type: 'devicon',
+    name: 'VueJS',
+  },
 ];
+
+const renderIcon = ({ icon, name, type }: Skill): JSX.Element => {
+  const icons: { [key in typeof type]: JSX.Element } = {
+    devicon: (
+      <SkillContainer>
+        <SkillIcon className={icon || `devicon-${name.toLowerCase()}-plain`} />
+      </SkillContainer>
+    ),
+  };
+
+  return icons[type];
+};
 
 const Skills = (): JSX.Element => {
   return (
@@ -128,19 +194,12 @@ const Skills = (): JSX.Element => {
           </div>
         </div>
         <div className="row text-center">
-          {MY_SKILLS.map(({ type, name, icon }: Skill, index: number) => {
-            if (type === 'devicon') {
-              return (
-                <div className="col-lg-4 mb-5" key={index}>
-                  <SkillIcon
-                    icon={icon || name.toLowerCase()}
-                    viewBox="0 0 32 32"
-                  />
-                  <SkillName>{name}</SkillName>
-                </div>
-              );
-            }
-          })}
+          {MY_SKILLS.map(({ type, name, icon }: Skill, index: number) => (
+            <div className="col-lg-4 mb-5" key={index}>
+              {renderIcon({ type, name, icon })}
+              <SkillName>{name}</SkillName>
+            </div>
+          ))}
         </div>
       </div>
       <div className="svg-border-rounded text-white">
