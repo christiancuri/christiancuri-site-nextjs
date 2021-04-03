@@ -43,7 +43,8 @@ export default function BlogHome(): ReactElement {
       <BlogHeader />
       <section className="bg-light py-10">
         <div className="container">
-          {latestPost ? <LatestPost post={latestPost} /> : null}
+          {latestPost && page > 0 ? <LatestPost post={latestPost} /> : null}
+          <h2>Posts</h2>
           <div className="row">
             <Posts posts={posts} />
           </div>
