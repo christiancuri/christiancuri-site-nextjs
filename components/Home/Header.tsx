@@ -27,7 +27,7 @@ export default function Header(): ReactElement {
               </h1>
               <p className="page-header-text mb-5">
                 Hi, my name is Christian Curi, i&apos;m {myAge} years old and I
-                love programming. Today i&apos;m a Software Engineer with +8
+                love programming. Today i&apos;m a Software Engineer with +8 of
                 work experience years. Below you can know a little more about me
                 and my skills
               </p>
