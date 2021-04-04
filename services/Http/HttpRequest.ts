@@ -8,9 +8,13 @@ import * as HttpMethods from './HttpMethods';
  * System section
  */
 
-export async function getPosts<T>(page: number): Promise<T> {
+export async function getPosts<T>(page: number, all = false): Promise<T> {
   return HttpMethods.getModule(
-    `/blog/posts?skip=${page * Config.POSTS_LIMIT}&limit=${Config.POSTS_LIMIT}`,
+    `/blog/posts?${
+      all
+        ? `all=true`
+        : `skip=${page * Config.POSTS_LIMIT}&limit=${Config.POSTS_LIMIT}`
+    }`,
   ).then(({ data }: AxiosResponse<T>) => data);
 }
 

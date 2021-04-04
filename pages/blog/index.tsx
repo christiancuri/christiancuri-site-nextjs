@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 
 import BlogHeader from '@/components/Blog/Header';
@@ -5,13 +6,22 @@ import LatestPost from '@/components/Blog/LatestPost';
 import Pagination from '@/components/Blog/Pagination';
 import Posts from '@/components/Blog/Posts';
 import Layout from '@/components/Layout';
+import { Config } from '@/config';
 import { IPost, IPostResponse } from '@/interfaces';
-import { HttpRequest } from '@/services';
+import { HttpRequest, useORM } from '@/services';
 
+import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
-export default function BlogHome(): ReactElement {
+type Props = {
+  posts: IPostResponse;
+  error?: string;
+};
+
+export default function BlogHome({ posts: initialPosts }: Props): ReactElement {
   const router = useRouter();
+
+  const orm = useORM<IPost>(initialPosts.data);
 
   const [posts, setPosts] = useState<IPost[]>([]);
   const [page, setPage] = useState<number>(0);
@@ -20,7 +30,10 @@ export default function BlogHome(): ReactElement {
   const [totalPages, setTotalPages] = useState<number>(0);
 
   const fetchPosts = useCallback(async () => {
-    const postResponse = await HttpRequest.getPosts<IPostResponse>(page);
+    const postResponse = orm.paginate(
+      page * Config.POSTS_LIMIT,
+      Config.POSTS_LIMIT,
+    );
     if (page === 0) {
       setLatestPage(postResponse.data[0]);
     }
@@ -64,3 +77,13 @@ export default function BlogHome(): ReactElement {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const posts = await HttpRequest.getPosts<IPostResponse>(0, true);
+
+    return { props: { posts } };
+  } catch (err) {
+    return { props: { error: err.message } };
+  }
+};
