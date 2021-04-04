@@ -57,5 +57,5 @@ jobs:
         run: |
           ssh -tt anubis@${{ secrets.HOST_PRODUCTION }} 'sudo -i -u root bash -c "
             kubectl set image deployment ${{ github.event.repository.name }} ${{ github.event.repository.name }}=${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }} &&
-            kubectl rollout restart deploy
+            kubectl rollout restart deploy ${{ github.event.repository.name }}
           "'
