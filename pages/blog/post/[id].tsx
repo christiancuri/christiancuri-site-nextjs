@@ -22,7 +22,7 @@ export default function PostPage({ post }: Props): ReactElement {
   const updated = post.createdAt !== post.updatedAt;
   const date = updated ? post.createdAt : post.updatedAt;
   return (
-    <Layout footerDark={true}>
+    <Layout footerDark={true} title={post.title}>
       <section className="bg-light py-10">
         <div className="container">
           <div className="row justify-content-center">

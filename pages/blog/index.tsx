@@ -39,7 +39,7 @@ export default function BlogHome(): ReactElement {
   }, [router]);
 
   return (
-    <Layout footerDark={true}>
+    <Layout footerDark={true} title="Blog">
       <BlogHeader />
       <section className="bg-light py-10">
         <div className="container">
