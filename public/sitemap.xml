@@ -1,8 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://christiancuri.dev</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://christiancuri.dev</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://christiancuri.dev/blog</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://christiancuri.dev/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Posts -->
+  <url>
+    <loc>https://christiancuri.dev/blog/post/how_to_install_mongodb_on_centos_8-37</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://christiancuri.dev/blog/post/how_to_install_jitsi_meet_on_ubuntu_20_04-36</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://christiancuri.dev/blog/post/how_to_install_jitsi_meet_on_ubuntu_18_04-35</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://christiancuri.dev/blog/post/how_to_setup_kubernetes_with_docker_on_centos_8-34</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>

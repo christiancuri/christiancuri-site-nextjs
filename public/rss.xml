@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Welcome to my personal website</title>
+    <link>https://christiancuri.dev</link>
+    <description />
+    <item>
+      <guid>https://christiancuri.dev</guid>
+      <title>Welcome to my personal website</title>
+      <link>https://christiancuri.dev</link>
+      <description />
+    </item>
+    <item>
+      <guid>https://christiancuri.dev/blog</guid>
+      <title>Blog</title>
+      <link>https://christiancuri.dev/blog</link>
+      <description />
+    </item>
+    <item>
+      <guid>https://christiancuri.dev/</guid>
+      <title>Welcome to my personal website</title>
+      <link>https://christiancuri.dev/</link>
+      <description />
+    </item>
+
+    <!-- Posts -->
+    <item>
+      <guid>https://christiancuri.dev/blog/post/how_to_install_mongodb_on_centos_8-37</guid>
+      <title>How to install MongoDB on CentOS 8</title>
+      <link>https://christiancuri.dev/blog/post/how_to_install_mongodb_on_centos_8-37</link>
+      <description />
+    </item>
+    <item>
+      <guid>https://christiancuri.dev/blog/post/how_to_install_jitsi_meet_on_ubuntu_20_04-36</guid>
+      <title>How to install Jitsi Meet with JWT Support on Ubuntu 20.04</title>
+      <link>https://christiancuri.dev/blog/post/how_to_install_jitsi_meet_on_ubuntu_20_04-36</link>
+      <description />
+    </item>
+    <item>
+      <guid>https://christiancuri.dev/blog/post/how_to_install_jitsi_meet_on_ubuntu_18_04-35</guid>
+      <title>How to install Jitsi Meet with JWT Support on Ubuntu 18.04</title>
+      <link>https://christiancuri.dev/blog/post/how_to_install_jitsi_meet_on_ubuntu_18_04-35</link>
+      <description />
+    </item>
+    <item>
+      <guid>https://christiancuri.dev/blog/post/how_to_setup_kubernetes_with_docker_on_centos_8-34</guid>
+      <title>How to setup Kubernetes with Docker on CentOS 8</title>
+      <link>https://christiancuri.dev/blog/post/how_to_setup_kubernetes_with_docker_on_centos_8-34</link>
+      <description />
+    </item>
+  </channel>
+</rss>
