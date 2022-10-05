@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout
         if: "contains(github.event.commits.*.message, 'ci: skip') != true"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.1.0
 
       - name: Setup SSH
         if: "contains(github.event.commits.*.message, 'ci: skip') != true"
